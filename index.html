@@ -45,7 +45,7 @@ header.scrolled .logo-name{color:var(--green)}
 nav ul{display:flex;list-style:none;gap:30px;font-size:14px;font-weight:600}
 nav a{position:relative}nav a:after{content:"";position:absolute;left:0;bottom:-8px;width:0;height:2px;background:var(--green2);transition:.3s}
 nav a:hover:after,nav a.active:after{width:100%}
-.menu-btn{display:none;background:none;border:0;font-size:27px;color:var(--green)}
+.menu-btn{display:none;background:none;border:0;font-size:27px;color:var(--green);cursor:pointer;touch-action:manipulation}
 .instagram-link{display:inline-flex;align-items:center;justify-content:center;gap:9px;border:1px solid rgba(7,91,50,.5);border-radius:999px;padding:10px 14px;color:var(--green);font-size:13px;font-weight:700;transition:.25s;white-space:nowrap}
 .instagram-link:hover{background:#fff;color:var(--green);transform:translateY(-2px)}
 .instagram-icon{width:19px;height:19px;flex:0 0 19px;fill:none;stroke:currentColor;stroke-width:1.8}
@@ -67,7 +67,7 @@ url("https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fi
 @media(prefers-reduced-motion:reduce){.hero h1 .letter{opacity:1;transform:none;animation:none}}
 .hero p{max-width:560px;font-size:17px;line-height:1.7;margin:25px 0 30px;color:rgba(255,255,255,.9)}
 .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
-.scroll-note{position:absolute;right:5%;bottom:34px;z-index:3;font-size:12px;opacity:.8;writing-mode:vertical-rl;letter-spacing:.12em}
+.scroll-note{display:none}
 .hero-leaf{position:absolute;right:-70px;bottom:-110px;width:400px;height:400px;border:1px solid rgba(255,255,255,.12);border-radius:50%}
 
 .trust{position:relative;margin-top:-1px;background:#fff;padding:26px 0;z-index:5}
@@ -146,11 +146,13 @@ footer .logo{color:#fff}footer .logo-name{color:#fff}footer nav ul{gap:22px}foot
   .logo-mark{width:62px;height:62px;flex-basis:62px}
   .logo-name{font-size:16px}
   .nav{gap:10px}
+  .menu-btn{flex:0 0 48px;width:48px;height:48px;margin-right:4px;display:grid;place-items:center;position:relative;z-index:60;border-radius:12px;color:#fff;background:rgba(255,255,255,.14)}
+  header.scrolled .menu-btn{color:var(--green);background:rgba(7,91,50,.08)}
   .header-actions{gap:8px}
   .header-actions .instagram-link{padding:9px 11px;font-size:12px}
   .desktop-cta{display:none}
-  nav{display:none}.menu-btn{display:block}
-  nav.open{display:block;position:absolute;top:75px;left:20px;right:20px;background:#fff;border-radius:20px;padding:22px;box-shadow:var(--shadow)}
+  nav{display:none}
+  nav.open{display:block;position:absolute;top:calc(100% - 4px);left:14px;right:14px;background:#fff;border-radius:20px;padding:22px;box-shadow:var(--shadow)}
   nav.open ul{display:grid;gap:18px}
   .hero{min-height:720px}.hero-content{padding-top:80px}
   .trust-grid,.products-grid,.sector-grid{grid-template-columns:repeat(2,1fr)}
@@ -160,7 +162,7 @@ footer .logo{color:#fff}footer .logo-name{color:#fff}footer nav ul{gap:22px}foot
 }
 @media(max-width:560px){
   .container{width:min(100% - 28px,1180px)}
-  .hero h1{font-size:52px}.hero p{font-size:15px}
+  .hero h1{font-size:clamp(34px,9.2vw,48px);letter-spacing:-.055em}.hero h1 .headline-line{white-space:nowrap}.hero-content{max-width:100%}.hero p{font-size:15px}
   .trust-grid,.products-grid,.sector-grid{grid-template-columns:1fr}
   .process-grid{grid-template-columns:1fr}
   .section-head{display:block}.section-head p{margin-top:18px}
@@ -205,7 +207,7 @@ footer .logo{color:#fff}footer .logo-name{color:#fff}footer nav ul{gap:22px}foot
       </div>
     </div>
   </div>
-  <div class="scroll-note">↓ Aşağı Kaydırın</div>
+  
 </section>
 
 <section class="trust">
@@ -356,6 +358,10 @@ document.querySelectorAll("nav a").forEach(a=>a.addEventListener("click",()=>doc
 </script>
 </body>
 </html>
+
+
+
+
 
 
 
